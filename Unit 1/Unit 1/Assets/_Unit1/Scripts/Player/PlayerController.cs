@@ -62,12 +62,6 @@ public class PlayerController : MonoBehaviour
         transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput); // moves 20 Unity units in one second. Time.deltaTime is the interval in seconds from the last frame to the current one
                                                                                       // Turn the vehicle
         transform.Rotate(Vector3.up, Time.deltaTime * turnSpeed * horizontalInput); // rotating the object based on it's y axis (vector.up), by time (Time.deltaTime)
-
-
-
-        //transform.Translate(0, 0, 1);
-        //transform.Translate(Vector3.forward);
-        //transform.Translate(Vector3.right * Time.deltaTime * turnSpeed * horizontalInput);
     }
 
     private void SetBreakLights(bool onOrOff)

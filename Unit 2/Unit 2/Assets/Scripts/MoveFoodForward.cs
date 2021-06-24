@@ -4,16 +4,9 @@ using UnityEngine;
 
 public class MoveFoodForward : MonoBehaviour
 {
-
     public float speed = 40.0f;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
+    // Moving the gameobject on the z axis based on seconds
     void Update()
     {
         transform.Translate(Vector3.forward * speed * Time.deltaTime);

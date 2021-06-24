@@ -7,16 +7,21 @@ public class DestroyOutOfBounds : MonoBehaviour
     private float topBoundry = 30f;
     private float lowerBound = -10f;
 
-    // Update is called once per frame
     void Update()
     {
-        if (transform.position.z > topBoundry)/* || transform.position.z < lowerBound)*/
+        DestroyIfOutOfBounds();
+    }
+
+    // Destroy the game object if it passes a z position
+    private void DestroyIfOutOfBounds()
+    {
+        if (transform.position.z > topBoundry || transform.position.z < lowerBound)
         {
             Destroy(gameObject);
         }
-        else if (transform.position.z < lowerBound)
-        {
-            Destroy(gameObject);
-        }
+        //else if (transform.position.z < lowerBound)
+        //{
+        //    Destroy(gameObject);
+        //}
     }
 }
