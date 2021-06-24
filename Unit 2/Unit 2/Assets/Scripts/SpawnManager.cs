@@ -12,7 +12,7 @@ public class SpawnManager : MonoBehaviour
     private void Start()
     {
         // Calling the SpawnRandomAnimals method after 2 seconds, and every 1.5 second
-        InvokeRepeating("SpawnRandomAnimals", spawnDelay, spawnInterval);
+        InvokeRepeating(nameof(SpawnRandomAnimals), spawnDelay, spawnInterval);
     }
 
     //Randomly generate animal index and spawn position
