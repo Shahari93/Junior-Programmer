@@ -15,13 +15,14 @@ public class DestroyOutOfBounds : MonoBehaviour
     // Destroy the game object if it passes a z position
     private void DestroyIfOutOfBounds()
     {
-        if (transform.position.z > topBoundry || transform.position.z < lowerBound)
+        if (transform.position.z > topBoundry)
         {
             Destroy(gameObject);
         }
-        //else if (transform.position.z < lowerBound)
-        //{
-        //    Destroy(gameObject);
-        //}
+        else if (transform.position.z < lowerBound)
+        {
+            Debug.Log("Game Over!");
+            Destroy(gameObject);
+        }
     }
 }
