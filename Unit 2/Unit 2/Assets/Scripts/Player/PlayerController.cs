@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float horizontalInput;
+    private float horizontalInput;
     public float speed;
     public float xRange = 10;
     [SerializeField] GameObject foodProjectilePrefab;
