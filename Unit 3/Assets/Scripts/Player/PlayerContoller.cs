@@ -6,6 +6,7 @@ public class PlayerContoller : MonoBehaviour
     private Rigidbody playerRB;
     private bool jump = false;
     private bool isOnGround = true;
+    public bool isGameOver;
     [Header("Jump variables")]
     [SerializeField] private float jumpForce = 10;
     [SerializeField] private float gravityModifer;
@@ -36,6 +37,15 @@ public class PlayerContoller : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        isOnGround = true;
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isOnGround = true;
+        }
+
+        else if(collision.gameObject.CompareTag("Obstacles"))
+        {
+            Debug.Log("Game Over!");
+            isGameOver = true;
+        }
     }
 }
