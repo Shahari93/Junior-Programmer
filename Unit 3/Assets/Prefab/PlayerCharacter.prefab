@@ -6221,8 +6221,8 @@ GameObject:
   - component: {fileID: 7316406249499034294}
   - component: {fileID: 602541666}
   - component: {fileID: 347103312}
-  - component: {fileID: 4866354610515191679}
   - component: {fileID: 4563604414928762963}
+  - component: {fileID: 4866354610515191679}
   m_Layer: 0
   m_Name: PlayerCharacter
   m_TagString: Untagged
@@ -6403,27 +6403,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &4866354610515191679
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7316406249499067411}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6354eaad108ce3143b8fc155c0e24083, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isGameOver: 0
-  explosionParticles: {fileID: 497802116}
-  dirtParticles: {fileID: 7316406249838911222}
-  sfx:
-  - {fileID: 8300000, guid: 913d6445ee8cc4152a9c18da590ee203, type: 3}
-  - {fileID: 8300000, guid: 08ab7053d586c458db3774d33c141a4b, type: 3}
-  playerAudio: {fileID: 4563604414928762963}
-  jumpForce: 1100
-  gravityModifer: 1.7
 --- !u!82 &4563604414928762963
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6520,6 +6499,27 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4866354610515191679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7316406249499067411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6354eaad108ce3143b8fc155c0e24083, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGameOver: 0
+  explosionParticles: {fileID: 497802116}
+  dirtParticles: {fileID: 7316406249838911222}
+  sfx:
+  - {fileID: 8300000, guid: 913d6445ee8cc4152a9c18da590ee203, type: 3}
+  - {fileID: 8300000, guid: 08ab7053d586c458db3774d33c141a4b, type: 3}
+  playerAudio: {fileID: 4563604414928762963}
+  jumpForce: 1100
+  gravityModifer: 1.7
 --- !u!1 &7316406249499067415
 GameObject:
   m_ObjectHideFlags: 0
