@@ -1587,7 +1587,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7316406249499067411}
   serializedVersion: 2
-  m_Mass: 2
+  m_Mass: 60
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -1607,7 +1607,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.47, y: 2.8261607, z: 1}
-  m_Center: {x: -0, y: 1.5669197, z: 0}
+  m_Center: {x: -0, y: 1.49, z: 0}
 --- !u!114 &4866354610515191679
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1620,8 +1620,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6354eaad108ce3143b8fc155c0e24083, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 15.5
-  gravityModifer: 1
+  isGameOver: 0
+  jumpForce: 700
+  gravityModifer: 1.7
 --- !u!1 &7316406249499067415
 GameObject:
   m_ObjectHideFlags: 0

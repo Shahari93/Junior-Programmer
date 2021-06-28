@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44657916, g: 0.49641317, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657975, g: 0.4964143, b: 0.57481766, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -573,7 +573,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bac3c503ed64994c91a6a13fe93c30d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontalInput: 0
   speed: 10
   xRange: 15
   foodProjectilePrefab: {fileID: 3560735895704581943, guid: 724be8c9b9a1b2c48912fe8ea7fa0214, type: 3}
