@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PowerUp : MonoBehaviour
 {
-    // Update is called once per frame
+
     void Update()
     {
         float sinValue = Mathf.Sin(Time.time * 3.0f);
