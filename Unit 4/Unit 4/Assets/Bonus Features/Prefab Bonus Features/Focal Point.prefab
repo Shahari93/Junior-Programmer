@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2937678350459611737}
-  - component: {fileID: 6434882778063935029}
+  - component: {fileID: 8569897262815852208}
   m_Layer: 0
   m_Name: Focal Point
   m_TagString: Untagged
@@ -25,14 +25,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2937678350459611738}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 6.471798, y: 0.09263783, z: -8.036726}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2937678351382810991}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6434882778063935029
+--- !u!114 &8569897262815852208
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,7 +41,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2937678350459611738}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5de88c7f5a087b045a6408aae5ee38ed, type: 3}
+  m_Script: {fileID: 11500000, guid: b428520d463cf3c4ab858b62c46051ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 50
