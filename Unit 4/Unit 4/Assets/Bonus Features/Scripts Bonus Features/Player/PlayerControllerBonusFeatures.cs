@@ -1,22 +1,25 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerControllerBonusFeatures : MonoBehaviour
 {
+    [SerializeField] private int jumpForce = 100;
     [SerializeField] private float speed;
+    [SerializeField] private float radius;
+    private int howManyJumps = 0;
     private float forwardMovement;
     private float powerupStrength = 15f;
     private bool isPlayerMoving;
     private bool hasPowerup = false;
     private bool hasRocketPowerup = false;
+    private bool hasJumpPowerup = false;
 
+    [SerializeField] private HomingRockets rockets;
     private Rigidbody playerRB;
     private GameObject focalPoint;
     public GameObject powerupIndicator;
     public GameObject rocketPowerup;
     public GameObject spawnPos;
-    [SerializeField] private HomingRockets rockets;
 
     WaitForSeconds powerupCountdown = new WaitForSeconds(7);
 
@@ -31,9 +34,20 @@ public class PlayerControllerBonusFeatures : MonoBehaviour
     private void Update()
     {
         spawnPos.transform.rotation = Quaternion.Euler(gameObject.transform.rotation.x * -1.0f, gameObject.transform.rotation.y * -1.0f, gameObject.transform.rotation.z * -1.0f);
-        if (Input.GetKeyDown(KeyCode.Space) && hasPowerup && currentPowerup == PowerupType.rocket)
+        if (Input.GetKeyDown(KeyCode.Z) && hasRocketPowerup && currentPowerup == PowerupType.rocket)
         {
             rockets.FireRocket();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space) && hasJumpPowerup && currentPowerup == PowerupType.jump && howManyJumps < 1)
+        {
+            //playerRB.AddForce(Vector3.up * jumpForce, ForceMode.);
+            playerRB.AddForceAtPosition(Vector3.up * jumpForce, gameObject.transform.position, ForceMode.Impulse);
+            howManyJumps++;
+        }
+        if (Input.GetKeyDown(KeyCode.X) && hasJumpPowerup)
+        {
+            playerRB.AddForceAtPosition(Vector3.down * jumpForce * 10, gameObject.transform.position, ForceMode.Impulse);
         }
 
         forwardMovement = Input.GetAxis("Vertical");
@@ -46,6 +60,8 @@ public class PlayerControllerBonusFeatures : MonoBehaviour
             isPlayerMoving = false;
         }
         powerupIndicator.transform.position = transform.position + new Vector3(0, -0.55f, 0);
+        Debug.Log(currentPowerup);
+        Debug.Log(hasJumpPowerup);
     }
 
 
@@ -61,10 +77,8 @@ public class PlayerControllerBonusFeatures : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Powerup") || other.CompareTag("RocketPowerup"))
+        if (other.CompareTag("Powerup") || other.CompareTag("RocketPowerup") || other.CompareTag("Smash"))
         {
-            hasPowerup = true;
-            hasRocketPowerup = false;
             powerupIndicator.SetActive(true);
             Destroy(other.gameObject);
             StartCoroutine(PowerupCountdown());
@@ -77,6 +91,12 @@ public class PlayerControllerBonusFeatures : MonoBehaviour
             else if (other.CompareTag("Powerup"))
             {
                 currentPowerup = PowerupType.knockback;
+                hasPowerup = true;
+            }
+            else if (other.CompareTag("Smash"))
+            {
+                currentPowerup = PowerupType.jump;
+                hasJumpPowerup = true;
             }
         }
     }
@@ -86,6 +106,7 @@ public class PlayerControllerBonusFeatures : MonoBehaviour
         yield return powerupCountdown;
         hasPowerup = false;
         hasRocketPowerup = false;
+        hasJumpPowerup = false;
         powerupIndicator.SetActive(false);
     }
 
@@ -94,6 +115,15 @@ public class PlayerControllerBonusFeatures : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy") && hasPowerup && currentPowerup == PowerupType.knockback)
         {
             EnemyKnockback(collision);
+        }
+        if (collision.gameObject.CompareTag("Ground") && howManyJumps > 0)
+        {
+            var enemies = FindObjectsOfType<EnemyBonusFeatures>();
+            for (int i = 0; i < enemies.Length; i++)
+            {
+                enemies[i].GetComponent<Rigidbody>().AddExplosionForce(powerupStrength, this.transform.position, radius, 0.0f, ForceMode.Impulse); // adding force to the enmy in the other direction
+            }
+            howManyJumps = 0;
         }
     }
 

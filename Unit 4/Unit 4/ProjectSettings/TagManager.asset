@@ -8,6 +8,8 @@ TagManager:
   - Enemy
   - Rocket
   - RocketPowerup
+  - Smash
+  - Ground
   layers:
   - Default
   - TransparentFX

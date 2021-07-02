@@ -126,11 +126,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97ecc596ced1e204f984de822e6f615a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpForce: 8
   speed: 5
   powerupIndicator: {fileID: 0}
   rocketPowerup: {fileID: 8140520630923363090, guid: a457f0311612da64abae6fb71f737bad, type: 3}
   spawnPos: {fileID: 3051544421701172009}
   rockets: {fileID: 6618691913927710848, guid: 126194cb42f9d0d4facb445f769097e4, type: 3}
+  smashAttack: {fileID: 2314113171705411406, guid: c9da3c3dd72863448a873a4988d579e8, type: 3}
 --- !u!1001 &5145116155761415251
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -168,7 +170,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7871831014909865851, guid: 6941fda1a95c4254e8d0e9d0c12c698c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 1.11
       objectReference: {fileID: 0}
     - target: {fileID: 7871831014909865851, guid: 6941fda1a95c4254e8d0e9d0c12c698c, type: 3}
       propertyPath: m_LocalRotation.w
