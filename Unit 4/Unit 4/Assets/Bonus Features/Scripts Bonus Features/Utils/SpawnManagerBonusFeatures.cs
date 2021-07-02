@@ -9,6 +9,7 @@ public class SpawnManagerBonusFeatures : MonoBehaviour
     [SerializeField] private float spawnRange = 9.0f;
     public int enemiesInScene;
     private int waveNumber = 1;
+    EnemyType currentEnemyType = EnemyType.normal;
 
     void Start()
     {
@@ -44,6 +45,11 @@ public class SpawnManagerBonusFeatures : MonoBehaviour
     {
         int randIndex = Random.Range(0, powerupPrefab.Length);
         Instantiate(powerupPrefab[randIndex], GenerateRandomPos(), powerupPrefab[randIndex].transform.rotation);
+        if(waveNumber % 3 == 0)
+        {
+            currentEnemyType = EnemyType.boss;
+            Instantiate(powerupPrefab[powerupPrefab.Length - 1], GenerateRandomPos(), powerupPrefab[powerupPrefab.Length - 1].transform.rotation);
+        }
     }
 
     // We use a return type whenever we need to get back a calculation that we did
