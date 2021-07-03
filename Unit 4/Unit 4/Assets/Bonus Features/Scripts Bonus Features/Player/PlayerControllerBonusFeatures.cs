@@ -41,7 +41,6 @@ public class PlayerControllerBonusFeatures : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && hasJumpPowerup && currentPowerup == PowerupType.jump && howManyJumps < 1)
         {
-            //playerRB.AddForce(Vector3.up * jumpForce, ForceMode.);
             playerRB.AddForceAtPosition(Vector3.up * jumpForce, gameObject.transform.position, ForceMode.Impulse);
             howManyJumps++;
         }
@@ -60,8 +59,6 @@ public class PlayerControllerBonusFeatures : MonoBehaviour
             isPlayerMoving = false;
         }
         powerupIndicator.transform.position = transform.position + new Vector3(0, -0.55f, 0);
-        Debug.Log(currentPowerup);
-        Debug.Log(hasJumpPowerup);
     }
 
 
@@ -72,7 +69,6 @@ public class PlayerControllerBonusFeatures : MonoBehaviour
             // We take the local forward direction of the focal point so the ball will move in that forward direction
             playerRB.AddForce(focalPoint.transform.forward * speed * forwardMovement);
         }
-
     }
 
     private void OnTriggerEnter(Collider other)

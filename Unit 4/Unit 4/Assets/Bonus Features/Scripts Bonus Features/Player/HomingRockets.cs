@@ -16,7 +16,12 @@ public class HomingRockets : MonoBehaviour
 
     private void Update()
     {
-        spawnPos.transform.position = playerController.transform.position; 
+        FindNearEnemy();
+    }
+
+    private void FindNearEnemy()
+    {
+        spawnPos.transform.position = playerController.transform.position;
         if (FindObjectOfType<EnemyBonusFeatures>() != null)
         {
             Transform target = FindObjectOfType<EnemyBonusFeatures>().transform;
