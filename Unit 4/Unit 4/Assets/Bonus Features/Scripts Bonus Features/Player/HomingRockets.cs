@@ -5,7 +5,6 @@ public class HomingRockets : MonoBehaviour
 {
     [SerializeField] private float speed;
     [SerializeField] GameObject spawnPos;
-    private Transform target;
     private PlayerControllerBonusFeatures playerController;
 
 
@@ -17,9 +16,10 @@ public class HomingRockets : MonoBehaviour
 
     private void Update()
     {
+        spawnPos.transform.position = playerController.transform.position; 
         if (FindObjectOfType<EnemyBonusFeatures>() != null)
         {
-            target = FindObjectOfType<EnemyBonusFeatures>().transform;
+            Transform target = FindObjectOfType<EnemyBonusFeatures>().transform;
             Vector3 moveDir = (target.transform.position - this.transform.position).normalized;
             this.transform.position += moveDir * speed * Time.deltaTime;
             this.transform.LookAt(target);
@@ -40,6 +40,12 @@ public class HomingRockets : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             playerController.EnemyKnockback(collision);
+            Destroy(gameObject);
         }
+    }
+
+    private void OnBecameInvisible()
+    {
+        Destroy(gameObject);
     }
 }
