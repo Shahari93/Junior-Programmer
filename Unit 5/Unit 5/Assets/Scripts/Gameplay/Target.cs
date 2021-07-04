@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Target : MonoBehaviour
@@ -15,6 +17,17 @@ public class Target : MonoBehaviour
         transform.position = RandomPos();
     }
 
+    // Called when we entered a collider and pressed down on the mouse key
+    private void OnMouseDown()
+    {
+        Destroy(gameObject);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Destroy(gameObject);
+    }
+
     // Generate random force
     Vector3 RandomForce()
     {
@@ -27,8 +40,8 @@ public class Target : MonoBehaviour
     Vector3 RandomPos()
     {
         float xRangePos = 4;
-        float yPos = 5;
-        return new Vector3(Random.Range(-xRangePos,xRangePos), -yPos);
+        float yPos = Random.Range(-3.5f, -2f);
+        return new Vector3(Random.Range(-xRangePos,xRangePos), yPos);
     }
 
     // Generate random torque
