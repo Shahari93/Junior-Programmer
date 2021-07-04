@@ -6,10 +6,15 @@ public class Target : MonoBehaviour
 {
 
     private Rigidbody targetRb;
+    private GameManager gameManager;
+    [SerializeField] ParticleSystem explosionParticles;
+
+    [SerializeField] private int scoreValue;
 
     void Start()
     {
         targetRb = GetComponent<Rigidbody>();
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
 
         targetRb.AddForce(RandomForce(), ForceMode.Impulse);
         targetRb.AddTorque(new Vector3(RandomTorque(), RandomTorque(), RandomTorque())); // Adding a spin to the object
@@ -21,6 +26,8 @@ public class Target : MonoBehaviour
     private void OnMouseDown()
     {
         Destroy(gameObject);
+        Instantiate(explosionParticles, transform.position, explosionParticles.transform.rotation);
+        gameManager.UpdateScore(scoreValue);
     }
 
     private void OnTriggerEnter(Collider other)
