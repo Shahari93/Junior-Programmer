@@ -25,17 +25,25 @@ public class Target : MonoBehaviour
     // Called when we entered a collider and pressed down on the mouse key
     private void OnMouseDown()
     {
-        Destroy(gameObject);
-        Instantiate(explosionParticles, transform.position, explosionParticles.transform.rotation);
-        gameManager.UpdateScore(scoreValue);
+        // Only beign able to destroy objects, if the game is active
+        if (gameManager.isGameActive)
+        {
+            Destroy(gameObject);
+            Instantiate(explosionParticles, transform.position, explosionParticles.transform.rotation);
+            gameManager.UpdateScore(scoreValue); 
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
         Destroy(gameObject);
+        if(!gameObject.CompareTag("Bad"))
+        {
+            gameManager.GameOver();
+        }
     }
 
-    // Generate random force
+    // Generate random force, and return the new vector
     Vector3 RandomForce()
     {
         float minSpeed = 12f;
@@ -43,7 +51,7 @@ public class Target : MonoBehaviour
         return Vector3.up * Random.Range(minSpeed, maxSpeed);
     }
 
-    // Generate random pos
+    // Generate random pos, and return the new vector
     Vector3 RandomPos()
     {
         float xRangePos = 4;
@@ -51,7 +59,7 @@ public class Target : MonoBehaviour
         return new Vector3(Random.Range(-xRangePos,xRangePos), yPos);
     }
 
-    // Generate random torque
+    // Generate random torque, and return the new range
     float RandomTorque()
     {
         float torqueForce = 10;
