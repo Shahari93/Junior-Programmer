@@ -7,7 +7,7 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    WaitForSeconds waitSpawn = new WaitForSeconds(1.0f);
+    private float spawnRate = 1.0f;
     private int score;
 
     [Header("Text")]
@@ -18,18 +18,9 @@ public class GameManager : MonoBehaviour
     [Header("Objects to spawn")]
     [SerializeField] private List<GameObject> targets;
 
+    [SerializeField] private GameObject titleScreen;
+
     public bool isGameActive;
-
-
-    void Start()
-    {
-        score = 0;
-        isGameActive = true;
-
-        StartCoroutine(SpawnTarget());
-        // Reseting the score at the start of the game
-        UpdateScore(0);
-    }
 
     // Spawining game objects at X rate
     IEnumerator SpawnTarget()
@@ -37,7 +28,7 @@ public class GameManager : MonoBehaviour
         // While this is true (always), run this corutine
         while (isGameActive)
         {
-            yield return waitSpawn;
+            yield return new WaitForSeconds(spawnRate);
             int randTarget = Random.Range(0, targets.Count);
             Instantiate(targets[randTarget]);
         }
@@ -49,6 +40,27 @@ public class GameManager : MonoBehaviour
         score += scoreToAdd;
         // Assigning the score int to the score text
         scoreText.text = "Score: " + score;
+    }
+
+
+    public void StartGame(int diffiuclty)
+    {
+        
+        score = 0;
+        isGameActive = true;
+
+        StartCoroutine(SpawnTarget());
+
+
+        /* the difficulty is 1 second divided by the difficulty number
+        so the larger the difficulty number the faster objects will spawn */
+
+        spawnRate /= diffiuclty;
+
+        // Reseting the score at the start of the game
+        UpdateScore(0);
+
+        titleScreen.gameObject.SetActive(false);
     }
 
 

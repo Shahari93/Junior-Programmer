@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Target : MonoBehaviour
 {
-
     private Rigidbody targetRb;
     private GameManager gameManager;
     [SerializeField] ParticleSystem explosionParticles;
