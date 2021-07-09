@@ -9,9 +9,11 @@ public class GameManagerShare : MonoBehaviour
 {
     private float spawnRate = 1.0f;
     private int score;
+    public int lives;
 
     [Header("Text")]
     [SerializeField] private TextMeshProUGUI scoreText = null;
+    [SerializeField] private TextMeshProUGUI livesText = null;
     [SerializeField] private TextMeshProUGUI gameOverText = null;
     [SerializeField] private Button restartBtn = null;
 
@@ -42,11 +44,20 @@ public class GameManagerShare : MonoBehaviour
         scoreText.text = "Score: " + score;
     }
 
+    public void UpdateLives(int livesToReduce)
+    {
+        if (lives > 0)
+        {
+            lives -= livesToReduce;
+            livesText.text = "Lives: " + lives;
+        }
+    }
 
     public void StartGame(int diffiuclty)
     {
-        
+
         score = 0;
+        lives = 3;
         isGameActive = true;
 
         StartCoroutine(SpawnTarget());
@@ -59,7 +70,7 @@ public class GameManagerShare : MonoBehaviour
 
         // Reseting the score at the start of the game
         UpdateScore(0);
-
+        UpdateLives(0);
         titleScreen.gameObject.SetActive(false);
     }
 

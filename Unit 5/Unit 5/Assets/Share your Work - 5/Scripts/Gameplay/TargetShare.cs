@@ -29,16 +29,21 @@ public class TargetShare : MonoBehaviour
         {
             Destroy(gameObject);
             Instantiate(explosionParticles, transform.position, explosionParticles.transform.rotation);
-            gameManager.UpdateScore(scoreValue); 
+            gameManager.UpdateScore(scoreValue);
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
         Destroy(gameObject);
-        if(!gameObject.CompareTag("Bad"))
+        if (!gameObject.CompareTag("Bad"))
         {
-            gameManager.GameOver();
+            gameManager.UpdateLives(1);
+            if (gameManager.lives <= 0)
+            {
+                gameManager.GameOver();
+                gameManager.lives = 0;
+            }
         }
     }
 
@@ -55,7 +60,7 @@ public class TargetShare : MonoBehaviour
     {
         float xRangePos = 4;
         float yPos = Random.Range(-3.5f, -2f);
-        return new Vector3(Random.Range(-xRangePos,xRangePos), yPos);
+        return new Vector3(Random.Range(-xRangePos, xRangePos), yPos);
     }
 
     // Generate random torque, and return the new range
