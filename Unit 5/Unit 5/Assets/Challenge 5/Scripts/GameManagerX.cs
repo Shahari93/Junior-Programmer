@@ -10,29 +10,49 @@ public class GameManagerX : MonoBehaviour
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI gameOverText;
     public GameObject titleScreen;
-    public Button restartButton; 
+    public Button restartButton;
+    public TextMeshProUGUI timerText;
 
     public List<GameObject> targetPrefabs;
 
     private int score;
-    private float spawnRate = 1.5f;
+    private int timerTimer = 61;
+    private int time;
+    private float spawnRate = 1f;
     public bool isGameActive;
 
-    private float spaceBetweenSquares = 2.5f; 
+    private float spaceBetweenSquares = 2.5f;
     private float minValueX = -3.75f; //  x value of the center of the left-most square
     private float minValueY = -3.75f; //  y value of the center of the bottom-most square
-    
+
     // Start the game, remove title screen, reset score, and adjust spawnRate based on difficulty button clicked
-    public void StartGame()
+    public void StartGame(int difficulty)
     {
-        spawnRate /= 5;
+        time = timerTimer;
+        spawnRate /= difficulty;
         isGameActive = true;
         StartCoroutine(SpawnTarget());
         score = 0;
         UpdateScore(0);
+        StartCoroutine(TimerCountdown());
         titleScreen.SetActive(false);
     }
 
+    private IEnumerator TimerCountdown()
+    {
+        while (time > 0 && isGameActive)
+        {
+            time--;
+            timerText.text = "Time: " + time;
+            if (time <= 0)
+            {
+                GameOver();
+            }
+            yield return new WaitForSeconds(1);
+        }
+    }
+
+    #region
     // While game is active spawn a random target
     IEnumerator SpawnTarget()
     {
@@ -45,7 +65,7 @@ public class GameManagerX : MonoBehaviour
             {
                 Instantiate(targetPrefabs[index], RandomSpawnPosition(), targetPrefabs[index].transform.rotation);
             }
-            
+
         }
     }
 
@@ -70,14 +90,14 @@ public class GameManagerX : MonoBehaviour
     public void UpdateScore(int scoreToAdd)
     {
         score += scoreToAdd;
-        scoreText.text = "score";
+        scoreText.text = "score: " + score;
     }
 
     // Stop game, bring up game over text and restart button
     public void GameOver()
     {
         gameOverText.gameObject.SetActive(true);
-        restartButton.gameObject.SetActive(false);
+        restartButton.gameObject.SetActive(true);
         isGameActive = false;
     }
 
@@ -86,5 +106,5 @@ public class GameManagerX : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
-
+    #endregion
 }
