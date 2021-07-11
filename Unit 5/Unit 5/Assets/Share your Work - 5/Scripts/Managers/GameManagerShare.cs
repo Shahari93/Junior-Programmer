@@ -11,18 +11,60 @@ public class GameManagerShare : MonoBehaviour
     private int score;
     public int lives;
 
-    [Header("Text")]
+    [Header("UI")]
     [SerializeField] private TextMeshProUGUI scoreText = null;
     [SerializeField] private TextMeshProUGUI livesText = null;
     [SerializeField] private TextMeshProUGUI gameOverText = null;
     [SerializeField] private Button restartBtn = null;
+    [SerializeField] private Slider musicVol;
 
     [Header("Objects to spawn")]
     [SerializeField] private List<GameObject> targets;
 
     [SerializeField] private GameObject titleScreen;
+    [SerializeField] private GameObject pauseScreen;
+    [SerializeField] private AudioSource music;
 
     public bool isGameActive;
+    public bool isGamePaused = false;
+
+    private void Awake()
+    {
+        SetVol();
+    }
+
+    private void Update()
+    {
+        SetVol();
+        PauseGame();
+    }
+
+    private void SetVol()
+    {
+        music.volume = musicVol.value;
+    }
+
+
+    private void PauseGame()
+    {
+        if (isGameActive)
+        {
+            if(Input.GetKeyDown(KeyCode.Escape))
+            {
+                isGamePaused = !isGamePaused;
+                if(isGamePaused)
+                {
+                    Time.timeScale = 0f;
+                    pauseScreen.SetActive(true);
+                }
+                else
+                {
+                    Time.timeScale = 1f;
+                    pauseScreen.SetActive(false);
+                }
+            }
+        }
+    }
 
     // Spawining game objects at X rate
     IEnumerator SpawnTarget()

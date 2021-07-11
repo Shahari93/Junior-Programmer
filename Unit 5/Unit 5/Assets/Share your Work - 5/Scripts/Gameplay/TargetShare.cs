@@ -25,7 +25,7 @@ public class TargetShare : MonoBehaviour
     private void OnMouseDown()
     {
         // Only beign able to destroy objects, if the game is active
-        if (gameManager.isGameActive)
+        if (gameManager.isGameActive && !gameManager.isGamePaused)
         {
             Destroy(gameObject);
             Instantiate(explosionParticles, transform.position, explosionParticles.transform.rotation);
