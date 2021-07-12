@@ -23,11 +23,10 @@ public class MouseSwipe : MonoBehaviour
         GameObject trailObj = new GameObject("Mouse Trail");
         trailTransform = trailObj.transform;
         TrailRenderer trail = trailObj.AddComponent<TrailRenderer>();
-        trail.time = -1f;
         trail.time = trailTime;
         trail.startWidth = startWidth;
         trail.endWidth = endWidth;
-        trail.numCapVertices = 2;
+        trail.numCapVertices = 4;
         trail.sharedMaterial = new Material(Shader.Find("Unlit/Color"));
         trail.sharedMaterial.color = trailColor;
     }
