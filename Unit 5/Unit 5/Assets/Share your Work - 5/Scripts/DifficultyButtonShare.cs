@@ -20,7 +20,7 @@ public class DifficultyButtonShare : MonoBehaviour
     }
 
     // Starting the game when the user select difficulty
-   private void SetDifficulty()
+    private void SetDifficulty()
     {
         Debug.Log(button.gameObject.name + " was pressed");
         gameManager.StartGame(difficulty);

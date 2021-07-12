@@ -6,14 +6,17 @@ public class TargetShare : MonoBehaviour
 {
     private Rigidbody targetRb;
     private GameManagerShare gameManager;
+    private MouseSwipe mouseSwipe;
     [SerializeField] ParticleSystem explosionParticles;
 
     [SerializeField] private int scoreValue;
+
 
     void Start()
     {
         targetRb = GetComponent<Rigidbody>();
         gameManager = GameObject.Find("Game Manager").GetComponent<GameManagerShare>();
+        mouseSwipe = GameObject.Find("Main Camera").GetComponent<MouseSwipe>();
 
         targetRb.AddForce(RandomForce(), ForceMode.Impulse);
         targetRb.AddTorque(new Vector3(RandomTorque(), RandomTorque(), RandomTorque())); // Adding a spin to the object
@@ -21,11 +24,14 @@ public class TargetShare : MonoBehaviour
         transform.position = RandomPos();
     }
 
+
+    
+
     // Called when we entered a collider and pressed down on the mouse key
-    private void OnMouseDown()
+    private void OnMouseEnter()
     {
         // Only beign able to destroy objects, if the game is active
-        if (gameManager.isGameActive && !gameManager.isGamePaused)
+        if (gameManager.isGameActive && !gameManager.isGamePaused && mouseSwipe.isMouseClicked)
         {
             Destroy(gameObject);
             Instantiate(explosionParticles, transform.position, explosionParticles.transform.rotation);

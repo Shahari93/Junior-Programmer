@@ -49,10 +49,10 @@ public class GameManagerShare : MonoBehaviour
     {
         if (isGameActive)
         {
-            if(Input.GetKeyDown(KeyCode.Escape))
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
                 isGamePaused = !isGamePaused;
-                if(isGamePaused)
+                if (isGamePaused)
                 {
                     Time.timeScale = 0f;
                     pauseScreen.SetActive(true);
