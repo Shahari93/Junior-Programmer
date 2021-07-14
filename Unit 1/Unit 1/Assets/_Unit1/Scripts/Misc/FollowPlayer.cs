@@ -6,7 +6,7 @@ using UnityEngine;
 public class FollowPlayer : MonoBehaviour
 {
     public GameObject player;
-    private Vector3 offset = new Vector3(0, 5, -7);
+    [SerializeField] private Vector3 offset = new Vector3(0, 5, -7);
     private Vector3 driverSeatOffset = new Vector3(0, 5, -7.35f);
     private Camera mainCamera;
     private bool isDriverSeatPerspective;
@@ -26,7 +26,6 @@ public class FollowPlayer : MonoBehaviour
     //Late update accours after the main update runs
     void LateUpdate()
     {
-
         if (!isDriverSeatPerspective)
         {
             mainCamera.transform.position = player.transform.position + offset;
