@@ -11,10 +11,9 @@ GameObject:
   - component: {fileID: 3560735895704515323}
   - component: {fileID: 3560735895701581801}
   - component: {fileID: 3560735895702609275}
-  - component: {fileID: 6599558068074334115}
-  - component: {fileID: -5074806839105470190}
   - component: {fileID: 5247502587402767031}
   - component: {fileID: 9083212440839921790}
+  - component: {fileID: 6599558068074334115}
   - component: {fileID: -5197757120042238465}
   m_Layer: 0
   m_Name: Steak
@@ -86,31 +85,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &6599558068074334115
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3560735895704581943}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2173f1df9477d6438d478306b85fb50, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 40
---- !u!114 &-5074806839105470190
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3560735895704581943}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7354e5ed744b0c74b9918ada3df8abc3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &5247502587402767031
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -140,6 +114,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.93479836, y: 0.17118736, z: 1.3230224}
   m_Center: {x: 0, y: 0.08559368, z: 0}
+--- !u!114 &6599558068074334115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3560735895704581943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2173f1df9477d6438d478306b85fb50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 40
 --- !u!114 &-5197757120042238465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,7 +136,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 3560735895704581943}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 002fd66e413b0294b843cedfd3f52f00, type: 3}
+  m_Script: {fileID: 11500000, guid: 2c52ee72091692143869a36cdefe1fd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 0}

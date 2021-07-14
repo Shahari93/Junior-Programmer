@@ -5574,7 +5574,6 @@ GameObject:
   - component: {fileID: 6490500463216764883}
   - component: {fileID: 7453947963677551768}
   - component: {fileID: 3067025492667869683}
-  - component: {fileID: 1472837778641008341}
   - component: {fileID: -9107743508165677432}
   m_Layer: 0
   m_Name: Dog
@@ -5676,7 +5675,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5470962860042729238}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7354e5ed744b0c74b9918ada3df8abc3, type: 3}
+  m_Script: {fileID: 11500000, guid: 81e62e9a8a22fac478a927ce940e28f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &7453947963677551768
@@ -5704,19 +5703,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.06147778, y: 0.21252082, z: 0.22149716}
   m_Center: {x: -0.0015497565, y: 0.094207846, z: 0.032708835}
---- !u!114 &1472837778641008341
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5470962860042729238}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 002fd66e413b0294b843cedfd3f52f00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerController: {fileID: 0}
 --- !u!114 &-9107743508165677432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5724,12 +5710,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5470962860042729238}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 21a5ef83a7fa2d744ac4710267541807, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   hungerBarFill: {fileID: 1071546157}
+  howHungrey: 0
+  howManyFood: 0
+  playerController: {fileID: 0}
 --- !u!1 &5470962860042729754
 GameObject:
   m_ObjectHideFlags: 0

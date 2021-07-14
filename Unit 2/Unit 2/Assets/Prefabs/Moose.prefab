@@ -874,7 +874,6 @@ GameObject:
   - component: {fileID: 5271569770133753203}
   - component: {fileID: 5271569770126610463}
   - component: {fileID: 5515642706687937605}
-  - component: {fileID: -1989380660927332519}
   - component: {fileID: 5882994902832632216}
   - component: {fileID: 8358247768052552390}
   - component: {fileID: -5331752194701108473}
@@ -943,18 +942,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
---- !u!114 &-1989380660927332519
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5271569770134002433}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7354e5ed744b0c74b9918ada3df8abc3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5882994902832632216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -989,10 +976,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 5271569770134002433}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 002fd66e413b0294b843cedfd3f52f00, type: 3}
+  m_Script: {fileID: 11500000, guid: 81e62e9a8a22fac478a927ce940e28f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 0}
 --- !u!114 &2201583248675192553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1000,12 +986,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5271569770134002433}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 21a5ef83a7fa2d744ac4710267541807, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   hungerBarFill: {fileID: 679289198}
+  howHungrey: 0
+  howManyFood: 0
+  playerController: {fileID: 0}
 --- !u!1 &5271569770134005433
 GameObject:
   m_ObjectHideFlags: 0
