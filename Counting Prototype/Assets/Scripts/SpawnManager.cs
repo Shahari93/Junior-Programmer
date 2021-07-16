@@ -6,11 +6,13 @@ public class SpawnManager : MonoBehaviour
 {
     [SerializeField] private GameObject ballPrefab;
     private float xPos = 3.41f;
-    private float startDelay = 1.5f, invokeTime = 1f;
 
-    private void Start()
+    private void Update()
     {
-        InvokeRepeating(nameof(SpawnBalls), startDelay, invokeTime);
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            SpawnBalls();
+        }
     }
 
     private void SpawnBalls()
