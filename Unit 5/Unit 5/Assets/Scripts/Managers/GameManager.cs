@@ -45,12 +45,10 @@ public class GameManager : MonoBehaviour
 
     public void StartGame(int diffiuclty)
     {
-        
         score = 0;
         isGameActive = true;
 
         StartCoroutine(SpawnTarget());
-
 
         /* the difficulty is 1 second divided by the difficulty number
         so the larger the difficulty number the faster objects will spawn */
